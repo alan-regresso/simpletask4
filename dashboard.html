@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<p>Projetos: {{total_projects}}</p>
+<p>Tarefas pendentes: {{pending_tasks}}</p>
+
+<h3>Tarefas urgentes</h3>
+
+<ul>
+{% for t in urgent_tasks %}
+<li>{{t.title}} - {{t.due_date}}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
