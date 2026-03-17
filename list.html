@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Tarefas</h2>
+<a href="/tasks/create/">Nova tarefa</a>
+
+<ul>
+{% for t in tasks %}
+<li>
+{{t.title}} - {{t.status}}
+<form method="post" action="/tasks/{{t.id}}/complete/">
+{% csrf_token %}
+<button type="submit">Concluir</button>
+</form>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
